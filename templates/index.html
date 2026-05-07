@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Ventas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        
+        <h2>SISTEMA VENTAS</h2>
+        <a href="/">Dashboard</a>
+        <a href="#">Inventario</a>
+        <a href="#">Ventas</a>
+        <a href="#">Reportes</a>
+        <a href="#">Configuración</a>
+    </div>
+    
+    <div class="main-content">
+        <div class="card">
+            <div class = "Logo">
+        <img src="{{url_for('static', filename = 'imagenes/asics.png')}}" alt="Logo-asics" class = "Logo-contenedor">
+    </div>
+            <h1>Panel de Control</h1>
+            <p>Sistema de ventas para productos de voleybol</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Lista de Productos</h3>
+                <a href="#" class="btn btn-add">+ 🏐Agregar Producto</a>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                    </tr>
+                    {% for producto in productos %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ producto[0] }}</td> <td>{{ producto[1] }} BOB</td> <td>{{ producto[2] }}</td> <td>
+                            <a href="#" class="text-primary">Editar</a> | 
+                            <a href="#" class="text-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
